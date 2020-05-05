@@ -3,6 +3,7 @@ import { Router } from 'express';
 import UserControll from './app/controllers/UserControll';
 import SessionControll from './app/controllers/SessionControll';
 import authVerify from './app/middlewares/authVerify';
+import TaskControll from './app/controllers/TaskControll';
 
 const routes = new Router();
 
@@ -11,8 +12,13 @@ routes.post('/session', SessionControll.create);
 
 routes.use(authVerify);
 
-routes.get('/users', UserControll.index);
-routes.put('/user', UserControll.update);
-routes.delete('/user', UserControll.delete);
+/* User */
+
+routes.post('/task/new', TaskControll.create);
+routes.get('/tasks', TaskControll.index);
+routes.put('/task/:id', TaskControll.update);
+routes.delete('/task/:id', TaskControll.delete);
+
+/* Task */
 
 export default routes;
