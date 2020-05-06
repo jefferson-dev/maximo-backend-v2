@@ -4,6 +4,7 @@ import UserControll from './app/controllers/UserControll';
 import SessionControll from './app/controllers/SessionControll';
 import authVerify from './app/middlewares/authVerify';
 import TaskControll from './app/controllers/TaskControll';
+import MyTaskControll from './app/controllers/MyTaskControll';
 
 const routes = new Router();
 
@@ -19,6 +20,10 @@ routes.use(authVerify);
 routes.get('/users', UserControll.index);
 routes.put('/user', UserControll.update);
 routes.delete('/user', UserControll.delete);
+
+/* Task of User */
+
+routes.get('/mytask', MyTaskControll.index);
 
 /* Task */
 
